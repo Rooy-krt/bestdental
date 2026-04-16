@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinic ERP | Best Dental Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ERP Page Specific Styles */
+        .erp-container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+        .erp-dashboard {
+            background: white;
+            border-radius: 32px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .erp-dashboard:hover {
+            transform: translateY(-5px);
+        }
+        .erp-header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .erp-badge {
+            background: var(--accent);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            color: var(--primary-dark);
+            font-weight: bold;
+        }
+        .stats-row {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: #f9fafc;
+            flex-wrap: wrap;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.2rem;
+            flex: 1;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        .stat-card h2 {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        .appointment-section {
+            padding: 1.5rem;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+        }
+        .status {
+            background: #e0f2e9;
+            color: #1e6f5c;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .status-pending {
+            background: #fff3e0;
+            color: #cc8b00;
+        }
+        .status-completed {
+            background: #e0f2e9;
+            color: #1e6f5c;
+        }
+        .btn-sm {
+            background: var(--secondary);
+            border: none;
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-right: 5px;
+            transition: all 0.2s ease;
+        }
+        .btn-sm:hover {
+            transform: translateY(-2px);
+        }
+        .btn-danger {
+            background: #c0392b;
+        }
+        .form-add {
+            background: #f9fafc;
+            margin: 1rem;
+            padding: 1.5rem;
+            border-radius: 28px;
+        }
+        .flex-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: end;
+        }
+        .flex-form input, .flex-form select {
+            padding: 0.7rem 1rem;
+            border-radius: 40px;
+            border: 1px solid #ccc;
+            flex: 1;
+            transition: all 0.2s ease;
+        }
+        .flex-form input:focus, .flex-form select:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(44,156,140,0.1);
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+        @media (max-width: 768px) {
+            .stats-row { flex-direction: column; }
+            .flex-form { flex-direction: column; }
+            .flex-form input, .flex-form select, .flex-form button { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-area">
+            <div class="logo-icon"><i class="fas fa-tooth"></i></div>
+            <div class="logo-text">
+                <h2>Best Dental</h2>
+                <p>JUJA • EXCELLENCE IN DENTISTRY</p>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="erp.html" class="active">Clinic ERP</a>
+            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="btn-contact">+254 724 124 735</a>
+        </div>
+    </nav>
+
+    <div class="erp-container">
+        <div class="erp-dashboard">
+            <div class="erp-header">
+                <h3><i class="fas fa-chart-line"></i> Practice Management System</h3>
+                <div class="erp-badge">Live Demo</div>
+            </div>
+            <div class="stats-row">
+                <div class="stat-card"><h2 id="totalPatients">0</h2><p>Total Patients</p></div>
+                <div class="stat-card"><h2 id="todayApps">0</h2><p>Appointments Today</p></div>
+                <div class="stat-card"><h2 id="pendingCount">0</h2><p>Pending Treatments</p></div>
+            </div>
+            <div class="appointment-section">
+                <h4>📋 Upcoming Appointments</h4>
+                <table id="appTable">
+                    <thead>
+                        <tr><th>Patient</th><th>Service</th><th>Date & Time</th><th>Status</th><th>Actions</th></tr>
+                    </thead>
+                    <tbody id="appBody"></tbody>
+                </table>
+            </div>
+            <div class="form-add">
+                <h4>➕ New Appointment</h4>
+                <div class="flex-form">
+                    <input type="text" id="patName" placeholder="Full Name">
+                    <select id="patService">
+                        <option>Checkup</option><option>Whitening</option><option>Braces</option>
+                        <option>Dentures</option><option>Tooth Gem</option><option>Root Canal</option>
+                    </select>
+                    <input type="datetime-local" id="patDateTime">
+                    <button class="btn-primary" id="addBtn">Schedule Appointment</button>
+                </div>
+                <p style="font-size: 0.8rem; margin-top: 0.8rem; color: var(--gray-600);">
+                    <i class="fas fa-database"></i> Data is saved in your browser (localStorage). Refresh to see saved appointments.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Best Dental</h3>
+                <p>Your trusted dental partner in Juja. Excellence in every smile.</p>
+                <div class="social-links">
+                    <a href="https://web.facebook.com/best.dental.724787" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/bestdentalservices/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <p><a href="index.html">Home</a><br><a href="services.html">Services</a><br><a href="erp.html">Appointments</a></p>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <p><i class="fas fa-phone"></i> +254 724 124 735<br><i class="fas fa-envelope"></i> hello@bestdental.co.ke<br><i class="fas fa-map-marker-alt"></i> Juja, Opposite Juja City Mall</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 Best Dental Clinic – Juja. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

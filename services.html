@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Our Dental Services | Best Dental Juja</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Additional page-specific styles */
+        .services-full {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .service-item {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            transform-style: preserve-3d;
+        }
+        .service-item:hover {
+            transform: translateY(-12px) rotateX(3deg);
+            box-shadow: var(--shadow-3d);
+        }
+        .service-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .service-item:hover img {
+            transform: scale(1.08);
+        }
+        .service-info {
+            padding: 1.5rem;
+        }
+        .service-info h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        .badge {
+            display: inline-block;
+            background: var(--secondary-light);
+            color: var(--secondary);
+            padding: 0.2rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .info-note {
+            background: #eef2f8;
+            border-radius: 24px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-area">
+            <div class="logo-icon">
+                <img src="img/logo.jpg" alt="Best Dental Logo">
+            </div>
+            <div class="logo-text">
+                <h2>Best Dental</h2>
+                <p>JUJA • EXCELLENCE IN DENTISTRY</p>
+            </div>
+        </div>
+        
+        <!-- Hamburger Button (Mobile Only) -->
+        <button class="hamburger" id="hamburgerBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <!-- Desktop Navigation -->
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="services.html" class="active">Services</a>
+            <a href="erp.html">Clinic ERP</a>
+            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="btn-contact">+254 724 124 735</a>
+        </div>
+    </nav>
+
+    <!-- Slider Menu (Mobile Only) -->
+    <div class="slider-overlay" id="sliderOverlay"></div>
+    <div class="slider-menu" id="sliderMenu">
+        <div class="slider-header">
+            <div class="slider-logo">
+                <div class="slider-logo-icon">
+                    <img src="img/logo.jpg" alt="Best Dental Logo">
+                </div>
+                <div class="slider-logo-text">
+                    <h3>Best Dental</h3>
+                    <p>Juja • Excellence in Dentistry</p>
+                </div>
+            </div>
+            <button class="close-slider" id="closeSliderBtn">&times;</button>
+        </div>
+        
+        <div class="slider-nav">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="services.html" class="active"><i class="fas fa-tooth"></i> Services</a>
+            <a href="erp.html"><i class="fas fa-chart-line"></i> Clinic ERP</a>
+            <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+        </div>
+        
+        <div class="slider-contact">
+            <h4><i class="fas fa-phone-alt"></i> Contact Us</h4>
+            <p><i class="fas fa-phone"></i> +254 724 124 735</p>
+            <p><i class="fas fa-envelope"></i> hello@bestdental.co.ke</p>
+            <p><i class="fas fa-map-marker-alt"></i> Juja, Opposite Juja City Mall</p>
+            
+            <div class="slider-social">
+                <a href="https://web.facebook.com/best.dental.724787" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/bestdentalservices/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/254724124735" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            
+            <a href="erp.html" class="slider-btn"><i class="fas fa-calendar-check"></i> Book Appointment</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1 class="section-title">Complete Dental Solutions</h1>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem; color: var(--gray-600);">From routine cleanings to advanced restorative procedures, we offer everything dental under one roof.</p>
+        
+        <div class="services-full">
+            <div class="service-item">
+                <img src="https://scontent.fnbo13-1.fna.fbcdn.net/v/t39.30808-6/470499601_122127796868559151_341194701513392874_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeH98al28vG4YQBvRl5KPc0rqwWBMPJAD8qrBYEw8kAPym27O2yb0wVUU5Uw56EiLq-FHmLGVcIsPyu2YfuUIdqr&_nc_ohc=iTP-AIkkokYQ7kNvwGI4u_g&_nc_oc=Adp9q_K4QkFMYS4XT0sv9WbPGooe_xdABo7bqk7P98JAvZrELvyPkDRDVIYUBam7qOg&_nc_zt=23&_nc_ht=scontent.fnbo13-1.fna&_nc_gid=9mCQRcHP30sSE3Pc9fqjsw&_nc_ss=7a3a8&oh=00_Af1xh0FvbuwywuOUkWN7iRGsn9IPB1e1xhq1WhlYawJ3BA&oe=69E6A62A" alt="Dentures">
+                <div class="service-info"><h3>Dentures</h3><p>Full & partial dentures custom-made for comfort and a natural look.</p><span class="badge">Affordable</span></div>
+            </div>
+            <div class="service-item">
+                <img src="https://scontent.fnbo13-1.fna.fbcdn.net/v/t39.30808-6/470196875_122127968738559151_4264600291783430518_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeF_I-NW8mFRi-l1fM7wt6sPbVC1TvMvBGNtULVO8y8EY4-FrWWjh_qbhUN5Py8PXd6RVo0uMYMpz5EVu3wUTtR0&_nc_ohc=sBkAFukHShQQ7kNvwGJw-5J&_nc_oc=AdomPr4vij_X-B2FRZ2g9QX-ffAZVm8b_BS2dlF8rY4DqVBkowyZGPOaBYYes0EwCq8&_nc_zt=23&_nc_ht=scontent.fnbo13-1.fna&_nc_gid=iDW6c9Vw7JtISG9KOcvjuQ&_nc_ss=7a3a8&oh=00_Af2O8VEG94Xo1STjNilvBP3P1vG8Yrfs5TIjuQXSHoIHrA&oe=69E69BD7" alt="Removable teeth replacement">
+                <div class="service-info"><h3>Removable Teeth Replacement</h3><p>Flexible, easy-to-maintain options to restore your smile.</p><span class="badge">Popular</span></div>
+            </div>
+            <div class="service-item">
+                <img src="https://scontent.fnbo13-1.fna.fbcdn.net/v/t39.30808-6/470174684_122126584082559151_8700361435746763257_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeGcIFAI9cGWh2qvRXtf2LxHQKT_LH-jnSpApP8sf6OdKqCbs3N2cEvGn_MaRPOKewoOFg4mpyKg1pTp7HoCHFAS&_nc_ohc=2NS2NKE_FpYQ7kNvwEtRUem&_nc_oc=AdpPy-0zDy1A6zvn3qN0KlWBdwSfjOWMylGCkoMfh3kVoTkOLO0EexBCStS_WVl-idM&_nc_zt=23&_nc_ht=scontent.fnbo13-1.fna&_nc_gid=z2QCT9Ng_3uWGx5Ohzm9BA&_nc_ss=7a3a8&oh=00_Af2NoJyahvsW6EiJYlNEM8X_BnwLkhM2UC7EM9M5RymG6A&oe=69E68B86" alt="Braces">
+                <div class="service-info"><h3>Braces & Orthodontics</h3><p>Metal, ceramic, and clear aligners for all ages.</p><span class="badge">Free Consultation</span></div>
+            </div>
+            <div class="service-item">
+                <img src="https://scontent.fnbo13-1.fna.fbcdn.net/v/t39.30808-6/469881800_122126326064559151_54409147963840266_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeFeHCFg1ZyaSvf7OvO3dJHKMnWObNJjqqAydY5s0mOqoLmKIzpsZwMqHELjt81m7YivEz2nai2r1z9JcjOSUirW&_nc_ohc=10UrlW1pHYQQ7kNvwGve7om&_nc_oc=Adovda522_haFuPMYmV1KsLUGXLLTKb4F3AwwepINVeyv_uLvt_TNycDi_cEps5HBSg&_nc_zt=23&_nc_ht=scontent.fnbo13-1.fna&_nc_gid=rflgQR3ItjI2ReU6grjfIA&_nc_ss=7a3a8&oh=00_Af3TT6M0QEmY58oxbe2tudcOz56ZprPc-ssbzOOgNjv3Uw&oe=69E692A6" alt="Tooth gems">
+                <div class="service-info"><h3>Tooth Gems</h3><p>Add sparkle to your smile with safe, stylish tooth jewelry.</p><span class="badge">Trending</span></div>
+            </div>
+            <div class="service-item">
+                <img src="https://scontent.fnbo13-1.fna.fbcdn.net/v/t39.30808-6/470214529_122126783252559151_8779304325586978571_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeGh8DXxmufaQ1V8Sg7sx7zOl2FNDzp-MCWXYU0POn4wJcHkkuSJ12IZZhzrN7eox8eK0ogGwuLDNlywh2yvZMKc&_nc_ohc=NR77pDM6r-sQ7kNvwGE0crd&_nc_oc=AdqZTT0ZNj1JWavvMAnvQbxc6ywNjH0UgMulND8fo7KhBWHN7Lw8DtTRWf2C434I2ZU&_nc_zt=23&_nc_ht=scontent.fnbo13-1.fna&_nc_gid=5QMlUKHKRZKpPkGcadt6Zg&_nc_ss=7a3a8&oh=00_Af2biVQ3MKdoWQQO-Od3z6zlUjYhhp25DcwQrkHg_l3s5g&oe=69E6AE8B" alt="Teeth whitening">
+                <div class="service-info"><h3>Professional Whitening</h3><p>In-office power whitening or take-home kits for a brighter smile.</p><span class="badge">20% Off</span></div>
+            </div>
+            <div class="service-item">
+                <img src="https://domf5oio6qrcr.cloudfront.net/medialibrary/16407/gettyimages-1543511026.jpg" alt="Root canal">
+                <div class="service-info"><h3>Root Canal Treatment</h3><p>Pain-free, precise root canal therapy to save your natural tooth.</p><span class="badge">Advanced</span></div>
+            </div>
+        </div>
+
+        <div class="info-note">
+            <p><i class="fas fa-info-circle"></i> <strong>To use your own Facebook images:</strong> Download the photos from your Facebook links, then replace the <code>src</code> attribute in each <code>&lt;img&gt;</code> tag with your uploaded image URL.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo-area">
+                    <div class="footer-logo-icon">
+                        <img src="img/logo.jpg" alt="Best Dental Logo">
+                    </div>
+                    <div>
+                        <h3>Best Dental</h3>
+                        <p>Your trusted dental partner in Juja. Excellence in every smile.</p>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://web.facebook.com/best.dental.724787" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/bestdentalservices/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/254724124735" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <p><a href="index.html">Home</a><br><a href="services.html">Services</a><br><a href="erp.html">Appointments</a><br><a href="contact.html">Contact</a></p>
+            </div>
+            <div>
+                <h4>Working Hours</h4>
+                <p><i class="fas fa-clock"></i> Mon-Sat: 8am - 7pm<br><i class="fas fa-clock"></i> Sunday: Emergencies only</p>
+                <h4 style="margin-top: 1rem;">Contact</h4>
+                <p><i class="fas fa-phone"></i> +254 724 124 735<br><i class="fas fa-envelope"></i> hello@bestdental.co.ke<br><i class="fas fa-map-marker-alt"></i> Juja, Opposite Juja City Mall</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2026 Best Dental Clinic – Juja. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ffb74d;"></i> for healthy smiles</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
