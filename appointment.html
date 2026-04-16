@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Book Appointment | Best Dental Juja</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Appointment Form Page Specific Styles */
+        .form-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+        .form-card {
+            background: white;
+            border-radius: 32px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.3s ease;
+        }
+        .form-card:hover {
+            transform: translateY(-5px);
+        }
+        .form-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .form-header h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .form-header p {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+        }
+        .form-header i {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .form-group label {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+        .form-group label i {
+            margin-right: 8px;
+            color: var(--secondary);
+            width: 20px;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.9rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(44, 156, 140, 0.1);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .submit-btn {
+            background: var(--secondary);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .submit-btn:hover {
+            background: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            display: none;
+        }
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            display: none;
+        }
+        .info-box {
+            background: var(--secondary-light);
+            padding: 1rem;
+            border-radius: 16px;
+            margin-top: 1rem;
+            text-align: center;
+        }
+        .info-box p {
+            font-size: 0.85rem;
+            color: var(--secondary);
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .form-card {
+                padding: 1.5rem;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .form-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-area">
+            <div class="logo-icon">
+                <img src="img/logo.jpg" alt="Best Dental Logo">
+            </div>
+            <div class="logo-text">
+                <h2>Best Dental</h2>
+                <p>JUJA • EXCELLENCE IN DENTISTRY</p>
+            </div>
+        </div>
+        
+        <!-- Hamburger Button (Mobile Only) -->
+        <button class="hamburger" id="hamburgerBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <!-- Desktop Navigation -->
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="appointment.html" class="active">Book Appointment</a>
+            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="btn-contact">+254 724 124 735</a>
+        </div>
+    </nav>
+
+    <!-- Slider Menu (Mobile Only) -->
+    <div class="slider-overlay" id="sliderOverlay"></div>
+    <div class="slider-menu" id="sliderMenu">
+        <div class="slider-header">
+            <div class="slider-logo">
+                <div class="slider-logo-icon">
+                    <img src="img/logo.jpg" alt="Best Dental Logo">
+                </div>
+                <div class="slider-logo-text">
+                    <h3>Best Dental</h3>
+                    <p>Juja • Excellence in Dentistry</p>
+                </div>
+            </div>
+            <button class="close-slider" id="closeSliderBtn">&times;</button>
+        </div>
+        
+        <div class="slider-nav">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="services.html"><i class="fas fa-tooth"></i> Services</a>
+            <a href="appointment.html" class="active"><i class="fas fa-calendar-check"></i> Book Appointment</a>
+            <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+        </div>
+        
+        <div class="slider-contact">
+            <h4><i class="fas fa-phone-alt"></i> Contact Us</h4>
+            <p><i class="fas fa-phone"></i> +254 724 124 735</p>
+            <p><i class="fas fa-envelope"></i> hello@bestdental.co.ke</p>
+            <p><i class="fas fa-map-marker-alt"></i> Juja, Opposite Juja City Mall</p>
+            
+            <div class="slider-social">
+                <a href="https://web.facebook.com/best.dental.724787" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/bestdentalservices/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/254724124735" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            
+            <a href="appointment.html" class="slider-btn"><i class="fas fa-calendar-check"></i> Book Appointment</a>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <div class="form-card">
+            <div class="form-header">
+                <i class="fas fa-calendar-check"></i>
+                <h1>Book Your Appointment</h1>
+                <p>Fill in the form below and we'll get back to you within 24 hours</p>
+            </div>
+
+            <div id="successMessage" class="success-message">
+                <i class="fas fa-check-circle"></i> Your appointment has been booked successfully! We'll contact you shortly to confirm.
+            </div>
+            <div id="errorMessage" class="error-message">
+                <i class="fas fa-exclamation-circle"></i> Please fill in all required fields correctly.
+            </div>
+
+            <form id="appointmentForm" class="booking-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Full Name *</label>
+                        <input type="text" id="fullName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-phone"></i> Phone Number *</label>
+                        <input type="tel" id="phone" placeholder="+254 XXX XXX XXX" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" id="email" placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar"></i> Preferred Date *</label>
+                        <input type="date" id="preferredDate" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-clock"></i> Preferred Time *</label>
+                        <select id="preferredTime" required>
+                            <option value="">Select time</option>
+                            <option value="08:00">8:00 AM</option>
+                            <option value="09:00">9:00 AM</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="13:00">1:00 PM</option>
+                            <option value="14:00">2:00 PM</option>
+                            <option value="15:00">3:00 PM</option>
+                            <option value="16:00">4:00 PM</option>
+                            <option value="17:00">5:00 PM</option>
+                            <option value="18:00">6:00 PM</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-tooth"></i> Service Required *</label>
+                        <select id="service" required>
+                            <option value="">Select a service</option>
+                            <option value="General Checkup">General Checkup & Cleaning</option>
+                            <option value="Teeth Whitening">Teeth Whitening</option>
+                            <option value="Braces">Braces & Orthodontics</option>
+                            <option value="Dentures">Dentures</option>
+                            <option value="Root Canal">Root Canal Treatment</option>
+                            <option value="Tooth Gems">Tooth Gems</option>
+                            <option value="Cosmetic Dentistry">Cosmetic Dentistry</option>
+                            <option value="Emergency Care">Emergency Dental Care</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-comment"></i> Additional Notes (Optional)</label>
+                    <textarea id="notes" rows="3" placeholder="Any specific concerns or questions?"></textarea>
+                </div>
+
+                <div class="info-box">
+                    <p><i class="fas fa-info-circle"></i> We'll confirm your appointment within 24 hours via phone or email.</p>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-calendar-check"></i> Book Appointment
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo-area">
+                    <div class="footer-logo-icon">
+                        <img src="img/logo.jpg" alt="Best Dental Logo">
+                    </div>
+                    <div>
+                        <h3>Best Dental</h3>
+                        <p>Your trusted dental partner in Juja. Excellence in every smile.</p>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://web.facebook.com/best.dental.724787" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/bestdentalservices/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/254724124735" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <p><a href="index.html">Home</a><br><a href="services.html">Services</a><br><a href="appointment.html">Book Appointment</a><br><a href="contact.html">Contact</a></p>
+            </div>
+            <div>
+                <h4>Working Hours</h4>
+                <p><i class="fas fa-clock"></i> Mon-Sat: 8am - 7pm<br><i class="fas fa-clock"></i> Sunday: Emergencies only</p>
+                <h4 style="margin-top: 1rem;">Contact</h4>
+                <p><i class="fas fa-phone"></i> +254 724 124 735<br><i class="fas fa-envelope"></i> hello@bestdental.co.ke<br><i class="fas fa-map-marker-alt"></i> Juja, Opposite Juja City Mall</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2026 Best Dental Clinic – Juja. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #ffb74d;"></i> for healthy smiles</p>
+        </div>
+    </footer>
+
+    <script>
+        // Appointment Form Handler
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const fullName = document.getElementById('fullName').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const preferredDate = document.getElementById('preferredDate').value;
+            const preferredTime = document.getElementById('preferredTime').value;
+            const service = document.getElementById('service').value;
+            const notes = document.getElementById('notes').value;
+            
+            // Validate required fields
+            if (!fullName || !phone || !preferredDate || !preferredTime || !service) {
+                showError('Please fill in all required fields.');
+                return;
+            }
+            
+            // Validate phone number (basic Kenyan format)
+            const phoneRegex = /^(\+254|0)[0-9]{9}$/;
+            if (!phoneRegex.test(phone) && !phone.match(/^[0-9]{10,12}$/)) {
+                showError('Please enter a valid phone number (e.g., 0712345678 or +254712345678)');
+                return;
+            }
+            
+            // Create appointment object
+            const appointment = {
+                id: Date.now(),
+                name: fullName,
+                phone: phone,
+                email: email,
+                service: service,
+                datetime: `${preferredDate}T${preferredTime}`,
+                date: preferredDate,
+                time: preferredTime,
+                notes: notes,
+                status: 'Pending',
+                createdAt: new Date().toISOString(),
+                source: 'patient_form'
+            };
+            
+            // Get existing appointments from localStorage
+            let appointments = JSON.parse(localStorage.getItem('bestDentalERP')) || [];
+            
+            // Add new appointment
+            appointments.push(appointment);
+            
+            // Save to localStorage
+            localStorage.setItem('bestDentalERP', JSON.stringify(appointments));
+            
+            // Show success message
+            showSuccess('Your appointment has been booked successfully!');
+            
+            // Reset form
+            document.getElementById('appointmentForm').reset();
+            
+            // Optional: Send to admin email (would require backend)
+            console.log('New appointment booked:', appointment);
+        });
+        
+        function showSuccess(message) {
+            const successDiv = document.getElementById('successMessage');
+            const errorDiv = document.getElementById('errorMessage');
+            successDiv.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+            successDiv.style.display = 'block';
+            errorDiv.style.display = 'none';
+            
+            // Auto hide after 5 seconds
+            setTimeout(() => {
+                successDiv.style.display = 'none';
+            }, 5000);
+        }
+        
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            const successDiv = document.getElementById('successMessage');
+            errorDiv.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${message}`;
+            errorDiv.style.display = 'block';
+            successDiv.style.display = 'none';
+            
+            // Auto hide after 4 seconds
+            setTimeout(() => {
+                errorDiv.style.display = 'none';
+            }, 4000);
+        }
+        
+        // Set min date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('preferredDate').min = today;
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>
