@@ -37,6 +37,58 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* Additional styles for the learn more button on service cards */
+        .service-card {
+            position: relative;
+        }
+        
+        .learn-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: transparent;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border-radius: 40px;
+        }
+        
+        .learn-more-btn i {
+            transition: transform 0.3s ease;
+        }
+        
+        .learn-more-btn:hover {
+            color: var(--primary);
+            background: var(--secondary-light);
+            padding: 0.5rem 1rem;
+        }
+        
+        .learn-more-btn:hover i {
+            transform: translateX(5px);
+        }
+        
+        .service-card .content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .service-card .content p {
+            flex-grow: 1;
+        }
+        
+        .btn-wrapper {
+            margin-top: auto;
+            display: flex;
+            justify-content: flex-end;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -161,17 +213,46 @@
         <h2 class="section-title">Our Premium Services</h2>
         <p class="section-subtitle">Comprehensive dental solutions tailored for you and your family</p>
         <div class="services-grid">
+            <!-- Service Card 1 - General Dentistry -->
             <div class="service-card">
                 <img src="https://shifaahospital.org/wp-content/uploads/2024/09/The-Role-of-a-Dentist-in-Maintaining-Your-Oral-Health.png" alt="General dentistry">
-                <div class="content"><h3>General Dentistry</h3><p>Fillings, root canals, extractions & preventive care for all ages.</p></div>
+                <div class="content">
+                    <h3>General Dentistry</h3>
+                    <p>Fillings, root canals, extractions & preventive care for all ages.</p>
+                    <div class="btn-wrapper">
+                        <a href="services.html#general-dentistry" class="learn-more-btn">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
+            
+            <!-- Service Card 2 - Cosmetic Dentistry -->
             <div class="service-card">
                 <img src="https://scontent.fnbo13-1.fna.fbcdn.net/v/t39.30808-6/469881800_122126326064559151_54409147963840266_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeFeHCFg1ZyaSvf7OvO3dJHKMnWObNJjqqAydY5s0mOqoLmKIzpsZwMqHELjt81m7YivEz2nai2r1z9JcjOSUirW&_nc_ohc=10UrlW1pHYQQ7kNvwGve7om&_nc_oc=Adovda522_haFuPMYmV1KsLUGXLLTKb4F3AwwepINVeyv_uLvt_TNycDi_cEps5HBSg&_nc_zt=23&_nc_ht=scontent.fnbo13-1.fna&_nc_gid=rflgQR3ItjI2ReU6grjfIA&_nc_ss=7a3a8&oh=00_Af3TT6M0QEmY58oxbe2tudcOz56ZprPc-ssbzOOgNjv3Uw&oe=69E692A6" alt="Cosmetic dentistry">
-                <div class="content"><h3>Cosmetic Dentistry</h3><p>Teeth whitening, veneers, and complete smile makeovers.</p></div>
+                <div class="content">
+                    <h3>Cosmetic Dentistry</h3>
+                    <p>Teeth whitening, veneers, and complete smile makeovers.</p>
+                    <div class="btn-wrapper">
+                        <a href="services.html#cosmetic-dentistry" class="learn-more-btn">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
+            
+            <!-- Service Card 3 - Braces & Aligners -->
             <div class="service-card">
                 <img src="https://scontent.fnbo13-1.fna.fbcdn.net/v/t39.30808-6/470174684_122126584082559151_8700361435746763257_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeGcIFAI9cGWh2qvRXtf2LxHQKT_LH-jnSpApP8sf6OdKqCbs3N2cEvGn_MaRPOKewoOFg4mpyKg1pTp7HoCHFAS&_nc_ohc=2NS2NKE_FpYQ7kNvwEtRUem&_nc_oc=AdpPy-0zDy1A6zvn3qN0KlWBdwSfjOWMylGCkoMfh3kVoTkOLO0EexBCStS_WVl-idM&_nc_zt=23&_nc_ht=scontent.fnbo13-1.fna&_nc_gid=z2QCT9Ng_3uWGx5Ohzm9BA&_nc_ss=7a3a8&oh=00_Af2NoJyahvsW6EiJYlNEM8X_BnwLkhM2UC7EM9M5RymG6A&oe=69E68B86" alt="Orthodontics">
-                <div class="content"><h3>Braces & Aligners</h3><p>Metal braces, ceramic braces, and clear aligners.</p></div>
+                <div class="content">
+                    <h3>Braces & Aligners</h3>
+                    <p>Metal braces, ceramic braces, and clear aligners.</p>
+                    <div class="btn-wrapper">
+                        <a href="services.html#braces-aligners" class="learn-more-btn">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
 
